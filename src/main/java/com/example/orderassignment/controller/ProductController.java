@@ -2,6 +2,7 @@ package com.example.orderassignment.controller;
 
 import com.example.orderassignment.dto.ProductDTO;
 import com.example.orderassignment.entity.Product;
+import com.example.orderassignment.exception.AlreadyExists;
 import com.example.orderassignment.exception.ProductNotFound;
 import com.example.orderassignment.service.ProductService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -33,7 +34,7 @@ public class ProductController {
     public ResponseEntity<Product> createProduct(@RequestBody Product product) throws JsonProcessingException {
         try {
             return new ResponseEntity(productService.createProduct(product), HttpStatus.CREATED);
-        } catch (JsonProcessingException | InstanceAlreadyExistsException e) {
+        } catch (JsonProcessingException | AlreadyExists | InstanceAlreadyExistsException e) {
             return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }

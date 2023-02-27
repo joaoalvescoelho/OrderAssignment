@@ -12,15 +12,18 @@ The application has an openapi yaml (swagger) file and a postman collection, as 
 ## Requirements
 * Docker
 * docker-compose
+* SpringBoot
+* openapi.yaml
 
 
 ## How to run
 After cloning the repo locally
 
-1. cd to docker directory
-2. run docker-compose up
+1. cd to docker directory (src/main/docker)
+   1. in the docker-compose.yml inside the docker folder is possible to change parameters, such as ports number, in case the ones used in this application are already in use. Change, for example, the ports to "5430:5432";
+2. run the command ```docker-compose up``` within the docker folder
 
-You can use postman test the requests.
+Afterwards, use postman test the requests.
 
 It is also possible to access http://localhost:8080/swagger-ui/index.html#/ to test the requests
 
